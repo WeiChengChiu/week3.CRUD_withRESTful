@@ -1,14 +1,17 @@
 <ul>
 <% @books.each do |book| %>
+
   <li>
   		<%= book.name %>
-  <%= link_to 'Show', book_path(book) %>
-  <%= link_to 'Edit', edit_book_path(book) %>
-  <%= link_to 'Delete', book_path(book), :method => :delete, :data => { :confirm => "Are you sure?" } %>
- 
+    <%= link_to 'Show', book_path(book) %>
+    <%= link_to 'Edit', edit_book_path(book) %>
+    <%= button_to 'Delete', book_path(book), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+   </li>
 
-  </li>
 <% end %>
 </ul>
 
 <%= link_to 'New book', new_book_path %>
+
+
+<%= paginate @books %>
